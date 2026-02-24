@@ -1,4 +1,6 @@
-package expenseManager;
+package expenseManager.domain.inc;
+
+import Errors.InvalidAmountException;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -12,6 +14,7 @@ public class Income {
 
     public Income(String incomeId, double amount, boolean isRecurring, LocalDate date) {
         this.incomeId = incomeId;
+        if (amount < 0) throw new InvalidAmountException("Amount cannot be negative");
         this.amount = amount;
         this.isRecurring = isRecurring;
         this.date = date;

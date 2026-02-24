@@ -1,4 +1,6 @@
-package expenseManager;
+package expenseManager.domain.exp;
+
+import Errors.InvalidAmountException;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -14,6 +16,7 @@ public abstract class Expense {
 
     public Expense(String expenseId, double amount, String description, LocalDateTime dateTime) {
         this.expenseId = UUID.randomUUID().toString();
+        if (amount < 0) throw new InvalidAmountException("Amount cannot be negative");
         this.amount = amount;
         this.description = description;
         this.dateTime = dateTime;
