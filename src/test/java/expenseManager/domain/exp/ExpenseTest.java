@@ -1,15 +1,12 @@
-package expenseManager.domain;
+package expenseManager.domain.exp;
 
 import Errors.InvalidAmountException;
 import expenseManager.domain.enu.*;
-import expenseManager.domain.exp.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 //execute before or after code
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
 
 import java.time.LocalDateTime;
 
