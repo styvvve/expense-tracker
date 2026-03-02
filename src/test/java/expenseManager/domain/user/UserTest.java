@@ -4,6 +4,7 @@ import Errors.InvalidAmountException;
 import expenseManager.domain.enu.*;
 import expenseManager.domain.exp.DynamicExpense;
 import expenseManager.domain.exp.Expense;
+import expenseManager.domain.exp.RecurrentExpense;
 import expenseManager.domain.inc.Income;
 import org.junit.jupiter.api.Test;
 
@@ -43,5 +44,42 @@ public class UserTest {
 
         assertEquals(1, user.getExpenses().size());
         assertEquals(exp, user.getExpenses().getFirst());
+    }
+
+    @Test
+    void getExpensesShouldReturnExpenses() {
+        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+
+        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDateTime.of(2026, 3, 1, 22, 11), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+
+        user.addExpense(exp);
+        user.addExpense(exp2);
+
+        assertEquals(2, user.getExpenses().size());
+    }
+
+    @Test
+    void calculateTotalExpenseShouldCalculate() {
+        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+
+        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDateTime.of(2026, 3, 1, 22, 11), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        user.addExpense(exp);
+        user.addExpense(exp2);
+
+        assertEquals(1000, user.calculateTotalExpense(user.getExpenses()));
+    }
+
+    @Test
+    void calculateTotalIncomeShouldCalculate() {
+        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+
+        Income inc = new Income("AAA", 2000, true, LocalDate.of(2026, 2, 12));
+        Income inc2 = new Income("BBB", 2000, true, LocalDate.of(2026, 2, 15));
+        user.addIncome(inc);
+        user.addIncome(inc2);
+
+        assertEquals(4000, user.calculateTotalIncome(user.getIncomes()));
     }
 }

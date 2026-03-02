@@ -4,8 +4,8 @@ import expenseManager.domain.exp.Expense;
 import expenseManager.domain.inc.Income;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -28,16 +28,16 @@ public class User {
     private String email;
     private LocalDate dateOfBirth;
 
-    private ArrayList<Expense> expenses;
-    private ArrayList<Income> incomes;
+    private List<Expense> allExpenses;
+    private List<Income> allIncomes;
 
     public User(String name, String lastName, String email, LocalDate dateOfBirth) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
-        this.expenses = new ArrayList<>();
-        this.incomes = new ArrayList<>();
+        this.allExpenses = new ArrayList<>();
+        this.allIncomes = new ArrayList<>();
     }
 
     //GETTERS
@@ -45,8 +45,8 @@ public class User {
     public String getLastName() { return this.lastName; }
     public String getEmail() { return this.email; }
     public LocalDate getDateOfBirth() { return this.dateOfBirth; }
-    public ArrayList<Expense> getExpenses() { return this.expenses; }
-    public ArrayList<Income> getIncomes() { return this.incomes; }
+    public List<Expense> getExpenses() { return this.allExpenses; }
+    public List<Income> getIncomes() { return this.allIncomes; }
 
     //SETTERS
     public void setName(String name) { this.name = name; }
@@ -56,9 +56,10 @@ public class User {
     //LOGIQUE MÉTIER
 
     //Expense ->
-    public void addExpense(Expense expense) { this.expenses.add(expense); }
-    public double calculateTotalExpense() {
-        return expenses.stream()
+    public void addExpense(Expense expense) { this.allExpenses.add(expense); }
+
+    public double calculateTotalExpense(List<Expense> exp) {
+        return exp.stream()
                 .mapToDouble(Expense::getAmount)
                 .sum();
     }
@@ -66,13 +67,12 @@ public class User {
     //AMELIORER -> CALCULER EXPENSE PAR MOIS
 
     //Income ->
-    public void addIncome(Income income) { this.incomes.add(income); }
-    public double calculateTotalIncome() {
+    public void addIncome(Income income) { this.allIncomes.add(income); }
+
+    public double calculateTotalIncome(List<Income> incomes) {
         return incomes.stream()
                 .mapToDouble(Income::getAmount)
                 .sum();
     }
-
-    //
 
 }
