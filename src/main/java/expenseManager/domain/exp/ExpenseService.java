@@ -89,6 +89,8 @@ public class ExpenseService {
                 .collect(toList());
     }
 
+    //ADD : TOTAL EXPENSE PER CATEGORY
+
 
 
 }
