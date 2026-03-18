@@ -25,7 +25,7 @@ public class IncomeTest {
 
     @Test
     public void unicityOfIncomes() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
         Income inc2 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));

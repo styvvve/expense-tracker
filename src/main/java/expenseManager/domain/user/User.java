@@ -3,6 +3,7 @@ package expenseManager.domain.user;
 import expenseManager.domain.exp.Expense;
 import expenseManager.domain.inc.Income;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
@@ -21,8 +22,9 @@ import java.util.ArrayList;
  * @since 1.0
  */
 
-public class User {
+public class User implements Serializable {
 
+    private final String id;
     private String name;
     private String lastName;
     private String email;
@@ -31,7 +33,8 @@ public class User {
     private List<Expense> allExpenses;
     private List<Income> allIncomes;
 
-    public User(String name, String lastName, String email, LocalDate dateOfBirth) {
+    public User(String id, String name, String lastName, String email, LocalDate dateOfBirth) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -41,6 +44,7 @@ public class User {
     }
 
     //GETTERS
+    public String getId() { return this.id; }
     public String getName() { return this.name; }
     public String getLastName() { return this.lastName; }
     public String getEmail() { return this.email; }
@@ -63,8 +67,6 @@ public class User {
                 .mapToDouble(Expense::getAmount)
                 .sum();
     }
-
-    //AMELIORER -> CALCULER EXPENSE PAR MOIS
 
     //Income ->
     public void addIncome(Income income) { this.allIncomes.add(income); }

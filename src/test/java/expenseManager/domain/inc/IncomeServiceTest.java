@@ -15,7 +15,7 @@ public class IncomeServiceTest {
 
     @Test
     public void getRecurrentIncomesShouldReturnRecurrentIncomes() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
         Income inc2 = new Income("BB", 2000, false, LocalDate.of(2003, 2, 12));
@@ -36,7 +36,7 @@ public class IncomeServiceTest {
 
     @Test
     public void getIncomesPerDayShouldReturnIncomesPerDay() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
 
@@ -49,7 +49,7 @@ public class IncomeServiceTest {
 
     @Test
     public void ensureRecurrentIncomesShouldCreateNextIncomes() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Income inc1 = new Income("AA", 2000, true, LocalDate.now());
         Income inc2 = new Income("BB", 2000, false, LocalDate.of(2003, 3, 12));
@@ -68,7 +68,7 @@ public class IncomeServiceTest {
 
     @Test
     public void weGetAllTheNextIncomes() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Income inc1 = new Income("AA", 2000, true, LocalDate.now());
 

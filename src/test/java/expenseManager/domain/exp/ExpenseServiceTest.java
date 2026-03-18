@@ -17,7 +17,7 @@ public class ExpenseServiceTest {
 
     @Test
     public void expensePerMonthReturnExpensesFromTheMonth() {
-        User user = new User("Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
         Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDateTime.of(2026, 2, 1, 22, 11), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
@@ -36,7 +36,7 @@ public class ExpenseServiceTest {
     @Test
     public void expensePerDayReturnExpensesFromTheDay() {
 
-        User user = new User("Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
         Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDateTime.now(), DynamicExpenseType.RESTAURANT_CAFE);
@@ -58,7 +58,7 @@ public class ExpenseServiceTest {
     @Test
     public void expensePerYearReturnExpensesFromTheYear() {
 
-        User user = new User("Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.of(2025, 2, 25, 11, 30), DynamicExpenseType.SHOPPING);
         Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDateTime.of(2025, 10, 10, 12, 30), DynamicExpenseType.RESTAURANT_CAFE);
@@ -79,7 +79,7 @@ public class ExpenseServiceTest {
     @Test
     public void getRecurrentExpensesReturnRecurrentExpenses() {
 
-        User user = new User("Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.of(2025, 2, 25, 11, 30), DynamicExpenseType.SHOPPING);
         Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDateTime.of(2025, 10, 10, 12, 30), DynamicExpenseType.RESTAURANT_CAFE);
@@ -100,7 +100,7 @@ public class ExpenseServiceTest {
     @Test
     public void getDynamicExpensesReturnDynamicExpenses() {
 
-        User user = new User("Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.of(2025, 2, 25, 11, 30), DynamicExpenseType.SHOPPING);
         Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDateTime.of(2025, 10, 10, 12, 30), DynamicExpenseType.RESTAURANT_CAFE);
@@ -120,7 +120,7 @@ public class ExpenseServiceTest {
 
     @Test
     public void expensesFilterShouldReturnCorrectFilteredExpenses() {
-        User user = new User("Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
+        User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
         Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.of(2025, 2, 25, 11, 30), DynamicExpenseType.SHOPPING);
         Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDateTime.of(2025, 10, 10, 12, 30), DynamicExpenseType.RESTAURANT_CAFE);
