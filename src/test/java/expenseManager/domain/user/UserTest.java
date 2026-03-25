@@ -39,7 +39,7 @@ public class UserTest {
     void addExpenseShouldAddExpense() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
+        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
         user.addExpense(exp);
 
         assertEquals(1, user.getExpenses().size());
@@ -50,8 +50,8 @@ public class UserTest {
     void getExpensesShouldReturnExpenses() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDateTime.of(2026, 3, 1, 22, 11), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -63,8 +63,8 @@ public class UserTest {
     void calculateTotalExpenseShouldCalculate() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDateTime.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDateTime.of(2026, 3, 1, 22, 11), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
         user.addExpense(exp);
         user.addExpense(exp2);
 

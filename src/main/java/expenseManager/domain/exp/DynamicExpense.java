@@ -2,13 +2,13 @@ package expenseManager.domain.exp;
 
 import expenseManager.domain.enu.DynamicExpenseType;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class DynamicExpense extends Expense {
 
     private DynamicExpenseType type;
 
-    public DynamicExpense(String expenseId, double amount, String description, LocalDateTime dateTime, DynamicExpenseType type) {
+    public DynamicExpense(String expenseId, double amount, String description, LocalDate dateTime, DynamicExpenseType type) {
         super(expenseId, amount, description, dateTime);
         this.type = type;
     }
