@@ -4,6 +4,7 @@ import Errors.InvalidAmountException;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Income class
@@ -22,8 +23,8 @@ public class Income {
     private boolean isRecurring;
     private LocalDate date;
 
-    public Income(String incomeId, double amount, boolean isRecurring, LocalDate date) {
-        this.incomeId = incomeId;
+    public Income(double amount, boolean isRecurring, LocalDate date) {
+        this.incomeId = UUID.randomUUID().toString();
         if (amount < 0) throw new InvalidAmountException("Amount cannot be negative");
         this.amount = amount;
         this.isRecurring = isRecurring;

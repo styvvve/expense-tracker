@@ -19,8 +19,8 @@ public class ExpenseServiceTest {
     public void expensePerMonthReturnExpensesFromTheMonth() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -38,9 +38,9 @@ public class ExpenseServiceTest {
 
         User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDate.now(), DynamicExpenseType.RESTAURANT_CAFE);
-        Expense exp3 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new DynamicExpense(60, "play", LocalDate.now(), DynamicExpenseType.RESTAURANT_CAFE);
+        Expense exp3 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -61,9 +61,9 @@ public class ExpenseServiceTest {
 
         User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
-        Expense exp3 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new DynamicExpense(60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
+        Expense exp3 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -82,9 +82,9 @@ public class ExpenseServiceTest {
 
         User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
-        Expense exp3 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new DynamicExpense(60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
+        Expense exp3 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -103,9 +103,9 @@ public class ExpenseServiceTest {
 
         User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
-        Expense exp3 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new DynamicExpense(60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
+        Expense exp3 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -123,10 +123,10 @@ public class ExpenseServiceTest {
     public void expensesFilterShouldReturnCorrectFilteredExpenses() {
         User user = new User("US-01", "Test", "Tesssst", "stybuud@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new DynamicExpense("EEE", 60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
-        Expense exp3 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
-        Expense exp4 = new RecurrentExpense("FFF", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.INTERNET_PHONE, PaymentFrequency.YEARLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.of(2025, 2, 25), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new DynamicExpense(60, "play", LocalDate.of(2025, 10, 10), DynamicExpenseType.RESTAURANT_CAFE);
+        Expense exp3 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp4 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.INTERNET_PHONE, PaymentFrequency.YEARLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);

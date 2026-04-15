@@ -8,11 +8,13 @@ public class DynamicExpense extends Expense {
 
     private DynamicExpenseType type;
 
-    public DynamicExpense(String expenseId, double amount, String description, LocalDate dateTime, DynamicExpenseType type) {
-        super(expenseId, amount, description, dateTime);
+    public DynamicExpense(double amount, String description, LocalDate dateTime, DynamicExpenseType type) {
+        super(amount, description, dateTime);
         this.type = type;
     }
 
     public DynamicExpenseType getType() { return this.type; }
+
+    public void setType(DynamicExpenseType type) { this.type = type; }
 
 }

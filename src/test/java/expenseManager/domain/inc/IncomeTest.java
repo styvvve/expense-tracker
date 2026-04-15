@@ -16,9 +16,9 @@ public class IncomeTest {
 
     @Test
     public void shouldCreateIncomeWithCorrectAmount() {
-        Income inc = new Income("GGG", 1600, true, LocalDate.now());
+        Income inc = new Income(1600, true, LocalDate.now());
 
-        assertThrows(InvalidAmountException.class, () -> new Income("TTT", -100, false, LocalDate.of(2026, 2, 26)));
+        assertThrows(InvalidAmountException.class, () -> new Income(-100, false, LocalDate.of(2026, 2, 26)));
 
         assertEquals(1600, inc.getAmount());
     }
@@ -27,9 +27,9 @@ public class IncomeTest {
     public void unicityOfIncomes() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
-        Income inc2 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
-        Income inc3 = new Income("CC", 2000, true, LocalDate.of(2003, 2, 12));
+        Income inc1 = new Income(2000, true, LocalDate.of(2003, 2, 12));
+        Income inc2 = new Income(2000, true, LocalDate.of(2003, 2, 12));
+        Income inc3 = new Income(2000, true, LocalDate.of(2003, 2, 12));
         Income inc4 = new Income(inc3);
 
         assertEquals(inc1, inc2);
@@ -39,7 +39,7 @@ public class IncomeTest {
 
     @Test
     public void shouldCreateNextIncomeWithCopyConstructor() {
-        Income inc = new Income("GGG", 1600, true, LocalDate.now());
+        Income inc = new Income(1600, true, LocalDate.now());
         Income inc2 = new Income(inc, true);
 
         assertEquals(inc, inc2);
@@ -49,9 +49,9 @@ public class IncomeTest {
     //we ll test if two incomes are the same
     @Test
     public void givenTwoRecurringIncomes_whenComparing_thenResultIsTrue() {
-        Income inc1 = new Income("GGG", 1600, true, LocalDate.of(2026, 3, 6));
-        Income inc2 = new Income("TTT", 1600, true, LocalDate.of(2026, 4, 6));
-        Income inc3 = new Income("GGG", 1600, true, LocalDate.of(2026, 4, 6));
+        Income inc1 = new Income(1600, true, LocalDate.of(2026, 3, 6));
+        Income inc2 = new Income(1600, true, LocalDate.of(2026, 4, 6));
+        Income inc3 = new Income(1600, true, LocalDate.of(2026, 4, 6));
 
 
         assertTrue(inc1.hasSameRecurringStatus(inc2));

@@ -17,9 +17,9 @@ public class IncomeServiceTest {
     public void getRecurrentIncomesShouldReturnRecurrentIncomes() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
-        Income inc2 = new Income("BB", 2000, false, LocalDate.of(2003, 2, 12));
-        Income inc3 = new Income("CC", 2000, true, LocalDate.of(2003, 2, 12));
+        Income inc1 = new Income(2000, true, LocalDate.of(2003, 2, 12));
+        Income inc2 = new Income(2000, false, LocalDate.of(2003, 2, 12));
+        Income inc3 = new Income(2000, true, LocalDate.of(2003, 2, 12));
 
         user.addIncome(inc1);
         user.addIncome(inc2);
@@ -38,7 +38,7 @@ public class IncomeServiceTest {
     public void getIncomesPerDayShouldReturnIncomesPerDay() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc1 = new Income("AA", 2000, true, LocalDate.of(2003, 2, 12));
+        Income inc1 = new Income(2000, true, LocalDate.of(2003, 2, 12));
 
         user.addIncome(inc1);
 
@@ -51,8 +51,8 @@ public class IncomeServiceTest {
     public void ensureRecurrentIncomesShouldCreateNextIncomes() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc1 = new Income("AA", 2000, true, LocalDate.now());
-        Income inc2 = new Income("BB", 2000, false, LocalDate.of(2003, 3, 12));
+        Income inc1 = new Income(2000, true, LocalDate.now());
+        Income inc2 = new Income(2000, false, LocalDate.of(2003, 3, 12));
 
         user.addIncome(inc1);
         user.addIncome(inc2);
@@ -70,7 +70,7 @@ public class IncomeServiceTest {
     public void weGetAllTheNextIncomes() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc1 = new Income("AA", 2000, true, LocalDate.now());
+        Income inc1 = new Income(2000, true, LocalDate.now());
 
         user.addIncome(inc1);
 

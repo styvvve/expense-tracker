@@ -28,7 +28,7 @@ public class UserTest {
     void addIncomeShouldAddIncome() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income income = new Income("AAA", 2000, true, LocalDate.of(2026, 2, 12));
+        Income income = new Income(2000, true, LocalDate.of(2026, 2, 12));
         user.addIncome(income);
 
         assertEquals(1, user.getIncomes().size());
@@ -39,7 +39,7 @@ public class UserTest {
     void addExpenseShouldAddExpense() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
         user.addExpense(exp);
 
         assertEquals(1, user.getExpenses().size());
@@ -50,8 +50,8 @@ public class UserTest {
     void getExpensesShouldReturnExpenses() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
 
         user.addExpense(exp);
         user.addExpense(exp2);
@@ -63,8 +63,8 @@ public class UserTest {
     void calculateTotalExpenseShouldCalculate() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 3, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
         user.addExpense(exp);
         user.addExpense(exp2);
 
@@ -75,8 +75,8 @@ public class UserTest {
     void calculateTotalIncomeShouldCalculate() {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Income inc = new Income("AAA", 2000, true, LocalDate.of(2026, 2, 12));
-        Income inc2 = new Income("BBB", 2000, true, LocalDate.of(2026, 2, 15));
+        Income inc = new Income(2000, true, LocalDate.of(2026, 2, 12));
+        Income inc2 = new Income(2000, true, LocalDate.of(2026, 2, 15));
         user.addIncome(inc);
         user.addIncome(inc2);
 

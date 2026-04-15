@@ -1,5 +1,9 @@
 package expenseManager.domain.enu;
 
+/**
+ * determine the type of each recurrent type
+ */
+
 public enum ExpenseRecurrentType implements Categorizable{
     RENT("Rent"),
     BANK_LOAN("Bank loan"),

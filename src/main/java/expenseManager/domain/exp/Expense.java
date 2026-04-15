@@ -26,7 +26,7 @@ public abstract class Expense {
     protected LocalDate dateTime;
 
 
-    public Expense(String expenseId, double amount, String description, LocalDate dateTime) {
+    public Expense(double amount, String description, LocalDate dateTime) {
         this.expenseId = UUID.randomUUID().toString();
         if (amount < 0) throw new InvalidAmountException("Amount cannot be negative");
         this.amount = amount;

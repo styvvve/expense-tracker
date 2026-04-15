@@ -6,6 +6,7 @@ import expenseManager.domain.enu.PaymentFrequency;
 import expenseManager.domain.exp.DynamicExpense;
 import expenseManager.domain.exp.Expense;
 import expenseManager.domain.exp.RecurrentExpense;
+import expenseManager.domain.inc.Income;
 import expenseManager.domain.interfaces.UserRepository;
 import expenseManager.domain.user.User;
 import expenseManager.infrastructures.repos.JsonUserRepository;
@@ -28,11 +29,14 @@ public class JsonPersistenceTest {
     public void saveDataToFile() throws IOException {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
 
-        Expense exp = new DynamicExpense("EEE", 500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
-        Expense exp2 = new RecurrentExpense("AAA", 500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+        Expense exp = new DynamicExpense(500, "play", LocalDate.now(), DynamicExpenseType.SHOPPING);
+        Expense exp2 = new RecurrentExpense(500, "rent", LocalDate.of(2026, 2, 1), ExpenseRecurrentType.RENT, PaymentFrequency.MONTHLY);
+
+        Income inc = new Income(20000, true, LocalDate.of(2026, 2, 12));
 
         user.addExpense(exp);
         user.addExpense(exp2);
+        user.addIncome(inc);
 
         Path file = Path.of("data/user.json");
 

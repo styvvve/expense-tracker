@@ -14,7 +14,7 @@ public class ExpenseTest {
 
     @Test
     void shouldCreateExpenseWithCorrectAmount() {
-        assertThrows(InvalidAmountException.class, () -> new DynamicExpense("SS", -100, "test", LocalDate.of(2026, 2, 24), DynamicExpenseType.FUEL));
-        assertThrows(InvalidAmountException.class, () -> new RecurrentExpense("SS", -100, "test", LocalDate.of(2026, 2, 24), ExpenseRecurrentType.ALIMONY, PaymentFrequency.MONTHLY));
+        assertThrows(InvalidAmountException.class, () -> new DynamicExpense(-100, "test", LocalDate.of(2026, 2, 24), DynamicExpenseType.FUEL));
+        assertThrows(InvalidAmountException.class, () -> new RecurrentExpense(-100, "test", LocalDate.of(2026, 2, 24), ExpenseRecurrentType.ALIMONY, PaymentFrequency.MONTHLY));
     }
 }
