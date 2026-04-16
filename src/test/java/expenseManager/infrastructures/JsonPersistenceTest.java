@@ -1,5 +1,6 @@
 package expenseManager.infrastructures;
 
+import Errors.NoFileDetected;
 import expenseManager.domain.enu.DynamicExpenseType;
 import expenseManager.domain.enu.ExpenseRecurrentType;
 import expenseManager.domain.enu.PaymentFrequency;
@@ -25,6 +26,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonPersistenceTest {
 
+    Path file = Path.of("data/user.json");
+
     @Test
     public void saveDataToFile() throws IOException {
         User user = new User("US-01", "Test", "Tesssst", "stydbdj@gmail.com", LocalDate.of(2003, 2, 12));
@@ -38,13 +41,29 @@ public class JsonPersistenceTest {
         user.addExpense(exp2);
         user.addIncome(inc);
 
-        Path file = Path.of("data/user.json");
-
         UserRepository repo = new JsonUserRepository(file);
 
         repo.save(user);
 
         assertTrue(Files.exists(file));
+        //Files.deleteIfExists(file);
+    }
+
+    //2 linked tests
+
+    @Test
+    public void loadDataFromFile() throws IOException {
+
+        UserRepository repo = new JsonUserRepository(file);
+        try {
+            User user = repo.load();
+            List<Expense> expenses = user.getExpenses();
+
+            assertNotNull(expenses);
+        } catch (NoFileDetected e) {
+            System.err.println("No file at " + file.toString());
+        }
+
         Files.deleteIfExists(file);
     }
 }

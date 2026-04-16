@@ -13,6 +13,10 @@ public class DynamicExpense extends Expense {
         this.type = type;
     }
 
+    public DynamicExpense() {
+        super();
+    }
+
     public DynamicExpenseType getType() { return this.type; }
 
     public void setType(DynamicExpenseType type) { this.type = type; }

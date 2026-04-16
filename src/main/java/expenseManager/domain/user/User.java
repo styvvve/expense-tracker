@@ -24,14 +24,14 @@ import java.util.ArrayList;
 
 public class User implements Serializable {
 
-    private final String id;
+    private String id;
     private String name;
     private String lastName;
     private String email;
     private LocalDate dateOfBirth;
 
-    private List<Expense> allExpenses;
-    private List<Income> allIncomes;
+    private List<Expense> allExpenses = new ArrayList<>();
+    private List<Income> allIncomes =  new ArrayList<>();
 
     public User(String id, String name, String lastName, String email, LocalDate dateOfBirth) {
         this.id = id;
@@ -39,9 +39,9 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
-        this.allExpenses = new ArrayList<>();
-        this.allIncomes = new ArrayList<>();
     }
+
+    public User() {}
 
     //GETTERS
     public String getId() { return this.id; }

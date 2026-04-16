@@ -18,7 +18,7 @@ import java.util.UUID;
 
 public class Income {
 
-    private final String incomeId;
+    private String incomeId;
     private double amount;
     private boolean isRecurring;
     private LocalDate date;
@@ -45,9 +45,11 @@ public class Income {
         this.date = other.date.plusMonths(recurring ? 1 : 0);
     }
 
+    public Income() {}
+
     public boolean hasSameRecurringStatus(Income other) {
-        if (this.isRecurring() && other.isRecurring()) return true;
-        else return !this.isRecurring() && !other.isRecurring();
+        if (this.getIsRecurring() && other.getIsRecurring()) return true;
+        else return !this.getIsRecurring() && !other.getIsRecurring();
     }
 
     //redefine to compare
@@ -66,7 +68,7 @@ public class Income {
     //getters and setters
     public String getIncomeId() { return this.incomeId; }
     public double getAmount() { return this.amount; }
-    public boolean isRecurring() { return this.isRecurring; }
+    public boolean getIsRecurring() { return this.isRecurring; }
     public LocalDate getDate() { return this.date; }
 
     public void setNewDate(LocalDate date) { this.date = date; }

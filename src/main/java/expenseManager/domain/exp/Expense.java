@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 public abstract class Expense {
 
-    protected final String expenseId;
+    protected String expenseId;
     protected double amount;
     protected String description;
     protected LocalDate dateTime;
@@ -33,6 +33,8 @@ public abstract class Expense {
         this.description = description;
         this.dateTime = dateTime;
     }
+
+    public Expense() {}
 
     //redefine to compare
     @Override

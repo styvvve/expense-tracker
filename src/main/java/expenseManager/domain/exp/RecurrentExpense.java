@@ -15,7 +15,9 @@ public class RecurrentExpense extends Expense {
         this.paymentFrequency = paymentFrequency;
     }
 
-    public ExpenseRecurrentType getExpenseRecurrentType() { return this.type; }
+    public RecurrentExpense() { super(); }
+
+    public ExpenseRecurrentType getType() { return this.type; }
     public PaymentFrequency getPaymentFrequency() { return this.paymentFrequency; }
 
     public void setRecurrentType (ExpenseRecurrentType type) { this.type = type; }

@@ -1,7 +1,9 @@
 package expenseManager.infrastructures.repos;
 
+import Errors.NoFileDetected;
 import expenseManager.domain.interfaces.UserRepository;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -40,8 +42,17 @@ public class JsonUserRepository implements UserRepository {
     }
 
     @Override
-    public User load() {
+    public User load() throws NoFileDetected {
+        try {
+            if (Files.notExists(path)) {
+                throw new NoFileDetected("No file at " + path.toString());
+            }
 
-        return null;
+            try (BufferedReader reader = Files.newBufferedReader(path)) {
+                return om.readValue(reader, User.class);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load user json file from : " + path, e);
+        }
     }
 }

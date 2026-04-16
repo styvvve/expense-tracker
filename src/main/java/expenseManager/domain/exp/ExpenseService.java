@@ -1,6 +1,5 @@
 package expenseManager.domain.exp;
 
-import expenseManager.domain.enu.Categorizable;
 import expenseManager.domain.enu.DynamicExpenseType;
 import expenseManager.domain.enu.ExpenseRecurrentType;
 import expenseManager.domain.enu.PaymentFrequency;
@@ -8,7 +7,6 @@ import expenseManager.domain.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -66,7 +64,7 @@ public class ExpenseService {
 
     public List<RecurrentExpense> recurrentExpensesPerTypes(ExpenseRecurrentType type) {
         return getRecurrentExpenses().stream()
-                .filter(e -> e.getExpenseRecurrentType() == type)
+                .filter(e -> e.getType() == type)
                 .collect(toList());
     }
 

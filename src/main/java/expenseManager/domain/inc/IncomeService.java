@@ -24,13 +24,13 @@ public class IncomeService {
     //recurring and not recurring
     public List<Income> getRecurrentIncomes() {
         return user.getIncomes().stream()
-                .filter(Income::isRecurring)
+                .filter(Income::getIsRecurring)
                 .collect(toList());
     }
 
     public List<Income> getNotRecurrentIncomes() {
         return user.getIncomes().stream()
-                .filter(i -> !i.isRecurring())
+                .filter(i -> !i.getIsRecurring())
                 .collect(toList());
     }
 
