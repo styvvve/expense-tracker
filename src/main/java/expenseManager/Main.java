@@ -1,7 +1,6 @@
-package org.example;
+package expenseManager;
 
 import expenseManager.domain.enu.DynamicExpenseType;
-import expenseManager.domain.exp.DynamicExpense;
 
 public class Main {
     public static void main(String[] args) {
